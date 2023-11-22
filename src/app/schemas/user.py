@@ -21,7 +21,7 @@ class UserBase(BaseModel):
 
 
 class User(TimestampModel, UserBase, UUIDModel, PersistentDeletion):
-    profile_image_url: Annotated[
+    avatar: Annotated[
         str, 
         Field(default="https://www.profileimageurl.com")
     ]
@@ -46,7 +46,7 @@ class UserRead(BaseModel):
         EmailStr, 
         Field(examples=["user.userson@example.com"])
     ]
-    profile_image_url: str
+    avatar: str | None
     tier_id: int | None
 
 
@@ -92,7 +92,7 @@ class UserUpdate(BaseModel):
             default=None
         )
     ]
-    profile_image_url: Annotated[
+    avatar: Annotated[
         Optional[str],
         Field(
             pattern=r"^(https?|ftp)://[^\s/$.?#].[^\s]*$",
