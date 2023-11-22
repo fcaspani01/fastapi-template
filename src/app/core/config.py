@@ -80,7 +80,7 @@ class ClientSideCacheSettings(BaseSettings):
 
 class RedisQueueSettings(BaseSettings):
     REDIS_QUEUE_HOST: str = config("REDIS_QUEUE_HOST", default="localhost")
-    REDIS_QUEUE_PORT: str = config("REDIS_QUEUE_PORT", default=6379)
+    REDIS_QUEUE_PORT: int = config("REDIS_QUEUE_PORT", default=6379)
 
 
 class RedisRateLimiterSettings(BaseSettings):
@@ -121,3 +121,5 @@ class Settings(
 
 
 settings = Settings()
+
+#c
